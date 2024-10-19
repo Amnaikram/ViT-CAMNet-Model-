@@ -60,11 +60,11 @@ The preprocessing pipeline consists of the following:
 
 The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed NLP by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
  
-## Training and Evaluation (Refer Multi Level Classification of DR.txt) 
+## Training and Evaluation (Refer Multi Level Classification of DR.txt file) 
 
 Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
-## DR Predictions  (Refer Predictions of DR Class.txt) 
+## DR Predictions  (Refer Predictions of DR Class.txt file) 
 
 <p align = "center">
 <img align="center" src="2 Predictions ViT.png" alt="Original Dataset"/>
