@@ -1,0 +1,106 @@
+
+#Dataset Description:
+
+import os
+print(os.listdir("../input"))
+import numpy as np
+import pandas as pd
+import cv2
+import matplotlib.pyplot as plt
+
+
+train_df = pd.read_csv('../input/aptos2019/train_1.csv')
+test_df = pd.read_csv('../input/aptos2019/test.csv')
+#sub = pd.read_csv('../input/aptos2019-blindness-detection/sample_submission.csv')
+print('Dimensions:', train_df.shape, test_df.shape)
+
+
+# Data processing functions:
+
+#Data Balancing
+import pandas as pd
+from imblearn.over_sampling import RandomOverSampler
+import matplotlib.pyplot as plt
+
+# Load the CSV file into a DataFrame
+csv_path = '/kaggle/input/aptos2019/train_1.csv'
+df = pd.read_csv(csv_path)
+
+# Specify the sampling strategy based on the unique labels in the DataFrame
+sampling_strategy = {
+    0: 1500,
+    1: 1500,
+    2: 1500,
+    3: 1500,
+    4: 1500
+}
+
+# Perform oversampling
+ros = RandomOverSampler(sampling_strategy=sampling_strategy)
+X_resampled, y_resampled = ros.fit_resample(df[['id_code']], df['diagnosis'])
+
+# Convert oversampled data back to a DataFrame
+oversampled_df = pd.DataFrame(X_resampled, columns=['id_code'])
+oversampled_df['diagnosis'] = y_resampled
+
+# Check the class distribution in the training set after oversampling
+print("Class distribution after oversampling:")
+print(oversampled_df['diagnosis'].value_counts())
+
+# Plotting the pie chart to show the equal distribution of classes
+class_counts = oversampled_df['diagnosis'].value_counts()
+class_labels = class_counts.index
+
+plt.figure(figsize=(8, 8))
+plt.pie(class_counts, labels=class_labels, autopct='%1.1f%%', startangle=140)
+plt.title('Class Distribution After Oversampling')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+
+#Data Preprocessing
+
+def crop_image_from_gray(img, tol=7):
+    if img.ndim == 2:
+        mask = img > tol
+        return img[np.ix_(mask.any(1), mask.any(0))]
+    elif img.ndim == 3:
+        gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        mask = gray_img > tol
+        
+        check_shape = img[:, :, 0][np.ix_(mask.any(1), mask.any(0))].shape[0]
+        if check_shape == 0:  # image is too dark so that we crop out everything
+            return img  # return original image
+        else:
+            img1 = img[:, :, 0][np.ix_(mask.any(1), mask.any(0))]
+            img2 = img[:, :, 1][np.ix_(mask.any(1), mask.any(0))]
+            img3 = img[:, :, 2][np.ix_(mask.any(1), mask.any(0))]
+            img = np.stack([img1, img2, img3], axis=-1)
+        return img
+​
+def load_ben_color(path, sigmaX=10):
+    image = cv2.imread(path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = crop_image_from_gray(image)
+    image = cv2.resize(image, (512, 512))
+    image = cv2.addWeighted(image, 4, cv2.GaussianBlur(image, (0, 0), sigmaX), -4, 128)
+    return image
+​
+# Augmentations for train/test data
+
+train_aug = transforms.Compose([
+    transforms.ToPILImage(),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(100),
+    transforms.RandomVerticalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std=[0.229, 0.224, 0.225]),
+])
+test_aug = transforms.Compose([
+    transforms.ToPILImage(),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std=[0.229, 0.224, 0.225])
+])
+
+​
