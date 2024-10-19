@@ -3,7 +3,7 @@
 
 ## About
 
-Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. 
+Diabetic retinopathy (DR) is a leading problem throughout the world and many people are losing their vision because of this disease. It is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. 
 
 <p align = "center">
 <img align="center" src="diabetic-retinopathy vs healthy.jpg" alt="Original Dataset"/>
