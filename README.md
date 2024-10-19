@@ -122,3 +122,7 @@ The current models return the following scores for binary classification (DR vs 
 <p align = "center">
 <img align="center" src="CM ViT.png" alt="Original Dataset"/>
 </p>
+
+## Conclusions
+
+The proposed ViT-CAMNet Model shows strong performance in multilevel classification of Diabetic Retinopathy. The use of Grad-CAM provides visual interpretability, allowing for more trust in the model's predictions, which is especially valuable in a medical setting.
