@@ -1,5 +1,5 @@
 
-# Detection and Multilevel Classification of DR with highlighting the image regions contributing to Prediction results along with their Probability Values
+# Detection and Multilevel Classification of DR with highlighting the Image Regions contributing to Prediction results along with their Probability Values
 
 ## About
 
