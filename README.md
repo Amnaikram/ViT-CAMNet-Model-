@@ -61,7 +61,9 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
 # DR Predictions  (Refer Predictions of DR Class.txt) 
 
-
+<p align = "center">
+<img align="center" src="2Predictions ViT.jpg" alt="Original Dataset"/>
+</p>
 
 # Highlighting Potential Parts of Image
 
@@ -91,6 +93,10 @@ Test Time Augmentation (TTA) involves applying various transformations to test i
 ## Gradient-weighted Class Activation Mapping (Refer GRADCAM.txt file)
 
 It provides an interpretable visual explanation of the network’s decision by highlighting the image areas that influenced the prediction the most. The Label indicates the predicted class and the probabilities associated with each label represent the network’s confidence level in its classification.
+
+<p align = "center">
+<img align="center" src="GM.jpg" alt="Original Dataset"/>
+</p>
 
 ## Results
 
