@@ -1,5 +1,5 @@
 
-# Detection and Multilevel Classification of DR with highlighting the image regions contributing to Prediction results along with their Prrobability Values
+# Detection and Multilevel Classification of DR with highlighting the image regions contributing to Prediction results along with their Probability Values
 
 ## About
 
@@ -13,7 +13,11 @@ Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which c
 
 The integration of ViT for feature extraction, customized training of InceptionV3, and the use of Grad-CAM for interpretability, along with robust preprocessing and fine-tuning techniques, collectively contribute to a highly effective and interpretable ViT-CAMNet model for the classification and diagnosis of Diabetic Retinopathy.
 
+
+
 # Detection and Multilevel Classification of Diabetic Retinopathy
+
+
 
 ## Data (Link of Dataset is given below)
 
@@ -33,7 +37,9 @@ It is used to equlaize te number of images in different classes of DR.
 
 The data is divided into training set (80%) and test/validation sets (20%). Then test/validation set is further split into validation (10%) and test (10%) sets. 
 
+
 ## Data Preprocessing & Augmentation (Refer Data Preprocessing DR Dataset.txt file)
+
 
 The preprocessing pipeline consists of the following:
 1. Resizing
