@@ -71,7 +71,7 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
 ## Dataset (Link of Dataset is given below)
 
-The next dataset is used named [(APTOS2019 )] (https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
+The next dataset is used named ([APTOS2019)](https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
 
 
 ## Random Oversampling (Refer Data Preprocessing Aptos2019 Dataset.txt file)
