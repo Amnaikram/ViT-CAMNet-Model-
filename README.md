@@ -97,16 +97,17 @@ Test Time Augmentation (TTA) involves applying various transformations to test i
 
 It provides an interpretable visual explanation of the network’s decision by highlighting the image areas that influenced the prediction the most. The Label indicates the predicted class and the probabilities associated with each label represent the network’s confidence level in its classification.
 
-<p align = "center">
-<img align="center" src="GM.png" alt="Original Dataset"/>
-</p>
 
 ## Results
 
 The current models return the following scores for binary classification (DR vs No DR) on the dataset.
 | Model | Accuracy |
 | :-----: | :-----: |
-| Standard CNN (Training) | 82.2% |
-| Standard CNN (Validation) | 82.2% |
-| InceptionV3 (Training) | 86.0% |
-| InceptionV3 (Validation) | 85.8% |
+| ViT-CAMNet Model(Training) | 98.3% |
+|  ViT-CAMNet Mode(Validation) | 94.4% |
+|  ViT-CAMNet Mode (Testing) | 93% |
+
+
+<p align = "center">
+<img align="center" src="GM.png" alt="Original Dataset"/>
+</p>
