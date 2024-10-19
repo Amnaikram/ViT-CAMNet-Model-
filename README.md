@@ -1,15 +1,18 @@
-# ViT-CAMNet-Model
 
 # Detection and Multilevel Classification of Diabetic Retinopathy 
 
-
-## About
+# About
 
 Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. In this project, I use tensorflow to develop neural networks which can detect diabetic retinopathy from retinal images. 
 
 <p align = "center">
 <img align="center" src="diabetic-retinopathy vs healthy.jpg" alt="Original Dataset"/>
 </p>
+
+## Proposed ViT-CAMNet-Model
+
+The integration of ViT for feature extraction, customized training of InceptionV3, and the use of Grad-CAM for interpretability, along with robust preprocessing and fine-tuning techniques, collectively contribute to a highly effective and interpretable ViT-CAMNet model for the classification and diagnosis of Diabetic Retinopathy.
+
 
 ## Data (Link of Dataset is given below)
 
@@ -19,9 +22,11 @@ The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kagg
 <img align="center" src="dataset.png" alt="Original Dataset"/>
 </p>
 
+
 ## Random Oversampling (Refer Data Preprocessing DR Dataset.txt file)
 
 It is used to equlaize te number of images in different classes of DR.
+
 
 # Dataset Splitting
 
@@ -52,6 +57,7 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 ## Highlighting Potential Parts of Image
 
 
+
 ## Dataset (Link of Dataset is given below)
 
 The next dataset is used named ([APTOS2019 )] (https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
@@ -59,6 +65,19 @@ The next dataset is used named ([APTOS2019 )] (https://www.kaggle.com/datasets/m
 ## Random Oversampling (Refer Data Preprocessing Aptos2019 Dataset.txt file)
 
 Random oversampling to equal the number of images present in different classes. 
+
+## InceptionV3 Training (Refer InceptionV3.txt file)
+
+The Inception v3 is loaded from the path linception v3 google-1a9a5a14.pth. The auxiliary logits layer is removed from the loaded state dictionary, and the fully connected layer is modified to match the count of classes. The modified state dictionary is then loaded into the model. Additionally, the pretrained weights are removed, and the model is initialized with custom weights. Removing the auxiliary logits layer from
+the loaded state dictionary improves the efficiency, speed, and simplicity of the model during inference without compromising its performance.
+
+## Test time Augmentation (Refer Test time Augmentation.txt file)
+
+Test Time Augmentation (TTA) involves applying various transformations to test images to enhance inceptionV3 predictions.
+
+## Gradient-weighted Class Activation Mapping (Refer GRADCAM.txt file)
+
+
 
 ## Results
 
