@@ -1,10 +1,15 @@
-# ViT-CAMNet-Model-
+# ViT-CAMNet-Model
 
-# Diabetic Retinopathy Detection and Classification
+# Detection and Multilevel Classification of Diabetic Retinopathy 
+
 
 ## About
 
 Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. In this project, I use tensorflow to develop neural networks which can detect diabetic retinopathy from retinal images. 
+
+<p align = "center">
+<img align="center" src="dataset.png" alt="Original Dataset"/>
+</p>
 
 ## Data (Link of Dataset is given below)
 
@@ -15,9 +20,11 @@ The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kagg
 </p>
 
 ## Random Oversampling (Refer Data Preprocessing DR Dataset.txt file)
+
 It is used to equlaize te number of images in different classes of DR.
 
 # Dataset Splitting
+
 The data is divided into training set (80%) and test/validation sets (20%). Then test/validation set is further split into validation (10%) and test (10%) sets. 
 
 ## Data Preprocessing & Augmentation (Refer Data Preprocessing DR Dataset.txt file)
@@ -45,12 +52,13 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 ## Highlighting Potential Parts of Image
 
 
-## Dataset  (Refer Multi Level Classification of DR.txt) 
+## Dataset (Link of Dataset is given below)
 
 The next dataset is used named ([APTOS2019 )] (https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
 
-random oversampling to equal the number of images present in different
- classes. 
+## Random Oversampling (Refer Data Preprocessing Aptos2019 Dataset.txt file)
+
+Random oversampling to equal the number of images present in different classes. 
 
 ## Results
 
