@@ -3,7 +3,7 @@
 
 ## About
 
-Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. In this project, I use tensorflow to develop neural networks which can detect diabetic retinopathy from retinal images. 
+Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. 
 
 <p align = "center">
 <img align="center" src="diabetic-retinopathy vs healthy.jpg" alt="Original Dataset"/>
