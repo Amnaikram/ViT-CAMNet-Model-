@@ -95,10 +95,10 @@ Test Time Augmentation (TTA) involves applying various transformations to test i
 
 ## Gradient-weighted Class Activation Mapping (Refer GRADCAM.txt file)
 
-It provides an interpretable visual explanation of the network’s decision by highlighting the image areas that influenced the prediction the most. The Label indicates the predicted class and the probabilities associated with each label represent the network’s confidence level in its classification.
+GRADCAM provides an interpretable visual explanation of the network’s decision by highlighting the image areas that influenced the prediction the most. The Label indicates the predicted class and the probabilities associated with each label represent the network’s confidence level in its classification.
 
 
-## Results
+# Results
 
 The current models return the following scores for binary classification (DR vs No DR) on the dataset.
 | Model | Accuracy |
