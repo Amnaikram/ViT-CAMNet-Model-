@@ -1,6 +1,6 @@
 # ViT-CAMNet-Model-
 
-# Diabetic Retinopathy Detection
+# Diabetic Retinopathy Detection and Classification
 
 ## About
 
@@ -8,8 +8,16 @@ Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which c
 
 ## Data
 
-The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). The original training data consists of about 35000 images taken of different people, using different cameras, and of different sizes. The dataset is heavily biased as most of the images are classified as not having DR. Pertaining to the preprocessing section, this data is also very noisy, and requires multiple preprocessing steps to get all images to a useable format for training a model.
+The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). This dataset consists of images categorized into five classes, labeled 0 to 4, with each label representing a progressive increase in disease severity: 0 Healthy, 1- Mild DR, 2- Moderate DR, 3- Proliferative DR, and 4- Severe DR. Each image has dimensions of 256×256 pixels, and the dataset contains a total of 2,750 images. However, the dataset is highly imbalanced, with the class distribution as follows: 1,000 Healthy, 370 Mild, 900 Moderate, 290 Proliferative, and 190 Severe DR images.
 
 <p align = "center">
 <img align="center" src="images/original_dataset.png" alt="Original Dataset"/>
 </p>
+
+## Data Preprocessing & Augmentation*
+
+The preprocessing pipeline consists of the following:
+1. Random oversampling
+2. Resizing
+3. Normalization
+4.  ZCA (Zero Component Analysis) Whitening
