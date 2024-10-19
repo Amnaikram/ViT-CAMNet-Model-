@@ -1,4 +1,4 @@
-# USAGE GUIDELINES
+# USAGE GUIDELINES OF CODE
 # Detection and Multilevel Classification of DR with highlighting the Image Regions contributing to Prediction results along with their Probability Values
 
 ## About
