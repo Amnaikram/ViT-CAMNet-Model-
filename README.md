@@ -21,3 +21,33 @@ The preprocessing pipeline consists of the following:
 2. Resizing
 3. Normalization
 4.  ZCA (Zero Component Analysis) Whitening
+
+   ## Neural Network Architecture
+
+I train two kinds of neural networks in this project. The first is a standard Convolution Neural Network (CNN) consisting of basic convolution and pooling layers. The second is the InceptionV3 model developed by Google. The architectures for both the models are included in the [neural_nets](https://github.com/ramanakshay/Diabetic-Retinopathy-Detection/tree/main/neural_nets) folder.
+
+## Training
+
+The data is split into two parts. 80% of the data is used for training and the remaining 20% is used for validation. The training data is the data used to train the model and the validation data is used to tune the model’s hyper parameters (optimizer, learning rate, batch size, epoch size...). We perform transfer learning on the InceptionV3 model by using a pre-trained network trained on the ImageNet dataset. 
+
+## Using Google Colab
+
+<p align = "center">
+<img align="center" src="images/colab_upload.png" alt="Upload"/>
+</p>
+
+To train the model using Google Colab, first import the neural network architecture (.pynb file) from the neural_nets folder. Then, import the .csv file containing the labels for the augmented dataset. Import the dataset by unzipping the image folder from Google Drive using the following command - 
+
+`!unzip '/content/drive/MyDrive/filepath/filename.zip'`
+
+The program directly accesses images from the directory to train the model without converting the entire dataset to numpy format (which consumes a lot of space ~20GB).
+
+## Results
+
+The current models return the following scores for binary classification (DR vs No DR) on the dataset.
+| Model | Accuracy |
+| :-----: | :-----: |
+| Standard CNN (Training) | 82.2% |
+| Standard CNN (Validation) | 82.2% |
+| InceptionV3 (Training) | 86.0% |
+| InceptionV3 (Validation) | 85.8% |
