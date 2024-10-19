@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+import torch
+import torchvision.transforms as transforms
+
+# Function to predict the class of a single image
+def predict(image, device):
+    model.eval()
+    with torch.no_grad():
+        image = image.to(device).unsqueeze(0)  # Add batch dimension
+        output = model(image)
+        _, predicted = torch.max(output, 1)
+    return predicted.item()
+
+# Function to display images with predictions
+def display_predictions(dataset, model, device, num_images=10):
+    plt.figure(figsize=(15, 15))
+    
+    for i in range(num_images):
+        image, label = dataset[i]
+        predicted = predict(image, device)
+        expected = label
+        correct = expected == predicted
+        
+        # Prepare image for display (move to CPU and convert to numpy array)
+        image_np = image.permute(1, 2, 0).cpu().numpy()
+        
+        # Plot image
+        ax = plt.subplot(5, 2, i + 1)
+        ax.imshow(image_np)
+        ax.set_title(f'Expected: {expected} - Predicted: {predicted} - Correct: {correct}')
+        ax.axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+# Call the function to display predictions
+display_predictions(rds_val, model, device, num_images=10)
