@@ -1,0 +1,35 @@
+#Fine tuning of Vision Transformer
+
+# Load pre-trained ViT model from timm and modify it for fine-tuning
+model = create_model('vit_base_patch32_224', pretrained=True, num_classes=len(class_names))
+model = model.to(device)
+​
+# Freeze all layers
+for param in model.parameters():
+    param.requires_grad = False
+​
+# Unfreeze the last few transformer blocks (e.g., last 3 blocks) and the classification head
+num_blocks_to_unfreeze = 8 # Number of blocks to unfreeze
+for param in model.blocks[-num_blocks_to_unfreeze:].parameters():
+    param.requires_grad = True
+​
+# Unfreeze the classification head
+for param in model.head.parameters():
+    param.requires_grad = True
+​
+# Loss and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam([
+    {'params': model.blocks[-num_blocks_to_unfreeze:].parameters()},
+    {'params': model.head.parameters()}
+], lr=9e-4)
+scheduler = StepLR(optimizer, step_size=1, gamma=0.7)
+​
+# Enable cuDNN benchmarking
+torch.backends.cudnn.benchmark = True
+​
+# Training loop with fine-tuning
+epochs = 100
+patience = 10
+best_val_loss = float('inf')
+counter = 0
