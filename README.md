@@ -21,7 +21,13 @@ The integration of ViT for feature extraction, customized training of InceptionV
 
 ## Data (Link of Dataset is given below)
 
-The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). This dataset consists of images categorized into five classes, labeled 0 to 4, with each label representing a progressive increase in disease severity: 0 Healthy, 1- Mild DR, 2- Moderate DR, 3- Proliferative DR, and 4- Severe DR. Each image has dimensions of 256×256 pixels, and the dataset contains a total of 2,750 images. However, the dataset is highly imbalanced, with the class distribution as follows: 1,000 Healthy, 370 Mild, 900 Moderate, 290 Proliferative, and 190 Severe DR images.
+The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). It contains 2,750 images across five classes, labeled from 0 (Healthy) to 4 (Severe DR), with the following distribution:
+
+0: Healthy - 1000 images
+1: Mild DR - 370 images
+2: Moderate DR - 900 images
+3: Proliferative DR - 290 images
+4: Severe DR - 190 images
 
 <p align = "center">
 <img align="center" src="dataset.png" alt="Original Dataset"/>
@@ -70,7 +76,7 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
 ## Dataset (Link of Dataset is given below)
 
-The next dataset is used named ([APTOS2019)](https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
+The next dataset is used named ([APTOS2019)](https://www.kaggle.com/datasets/mariaherrerot/aptos2019). It contains separate folders for training and testing images.
 
 
 ## Data Preprocessing (Refer Data Preprocessing Aptos2019 Dataset.txt file)
