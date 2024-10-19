@@ -23,7 +23,7 @@ The preprocessing pipeline consists of the following:
 4.  ZCA (Zero Component Analysis) Whitening
 
 <p align = "center">
-<img align="center" src="Preprocessed ViT" alt="Original Dataset"/>
+<img align="center" src="Preprocessed ViT.png" alt="Original Dataset"/>
 </p>
    ## Neural Network Architecture
 
