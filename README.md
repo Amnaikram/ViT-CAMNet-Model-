@@ -114,9 +114,9 @@ GRADCAM provides an interpretable visual explanation of the network’s decision
 # Results
 
 The current models return the following scores for binary classification (DR vs No DR) on the dataset.
-| Model | Accuracy |
+| ViT-CAMNet Model| Accuracy |
 | :-----: | :-----: |
-| ViT-CAMNet Model(Training) | 98.3% |
+| Training | 98.3% |
 |  ViT-CAMNet Mode(Validation) | 94.4% |
 |  ViT-CAMNet Mode (Testing) | 93% |
 
