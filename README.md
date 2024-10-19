@@ -6,7 +6,7 @@
 
 Diabetic Retinopathy (DR) is a common complication of diabetes mellitus, which causes lesions on the retina that effect vision. If it is not detected early, it can lead to blindness. In this project, I use tensorflow to develop neural networks which can detect diabetic retinopathy from retinal images. 
 
-## Data
+## Data 
 
 The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). This dataset consists of images categorized into five classes, labeled 0 to 4, with each label representing a progressive increase in disease severity: 0 Healthy, 1- Mild DR, 2- Moderate DR, 3- Proliferative DR, and 4- Severe DR. Each image has dimensions of 256×256 pixels, and the dataset contains a total of 2,750 images. However, the dataset is highly imbalanced, with the class distribution as follows: 1,000 Healthy, 370 Mild, 900 Moderate, 290 Proliferative, and 190 Severe DR images.
 
@@ -14,7 +14,7 @@ The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kagg
 <img align="center" src="dataset.png" alt="Original Dataset"/>
 </p>
 
-## Data Preprocessing & Augmentation
+## Data Preprocessing & Augmentation (Refer 
 
 The preprocessing pipeline consists of the following:
 1. Random oversampling
@@ -28,21 +28,11 @@ The preprocessing pipeline consists of the following:
 
 ## Vision Transformer
 
-I train two kinds of neural networks in this project. The first is a standard Convolution Neural Network (CNN) consisting of basic convolution and pooling layers. The second is the InceptionV3 model developed by Google. The architectures for both the models are included in the [neural_nets](https://github.com/ramanakshay/Diabetic-Retinopathy-Detection/tree/main/neural_nets) folder.
-
-## Training
-
 The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed natural language processing (NLP) by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming
  to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
-## Using Google Colab
+ 
+## Training and Evaluation
 
-<p align = "center">
-<img align="center" src="images/colab_upload.png" alt="Upload"/>
-</p>
-
-To train the model using Google Colab, first import the neural network architecture (.pynb file) from the neural_nets folder. Then, import the .csv file containing the labels for the augmented dataset. Import the dataset by unzipping the image folder from Google Drive using the following command - 
-
-`!unzip '/content/drive/MyDrive/filepath/filename.zip'`
 
 The program directly accesses images from the directory to train the model without converting the entire dataset to numpy format (which consumes a lot of space ~20GB).
 
