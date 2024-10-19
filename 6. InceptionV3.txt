@@ -1,0 +1,80 @@
+import torch
+import torchvision.models as models
+import torch.nn as nn
+
+# Hyperparameters
+num_epochs = 8
+num_classes = 5
+lr = 0.001
+
+# Device configuration
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
+# Path to the pretrained model file
+pretrained_model_path = '/kaggle/input/inception/inception_v3_google-1a9a5a14.pth'
+
+# Load the pretrained Inception v3 model with the loaded state dictionary
+model = models.inception_v3(pretrained=False, aux_logits=False)
+
+# Load the model state dictionary on the CPU
+state_dict = torch.load(pretrained_model_path, map_location=torch.device('cpu'))
+
+# Remove AuxLogits keys if present
+aux_logits_keys = [key for key in state_dict.keys() if 'AuxLogits' in key]
+for key in aux_logits_keys:
+    del state_dict[key]
+
+# Modify the fully connected layer to match the number of classes
+model.fc = nn.Linear(model.fc.in_features, num_classes)
+
+# Remove fully connected layer weights from state_dict
+fc_keys = ['fc.weight', 'fc.bias']
+for key in fc_keys:
+    if key in state_dict:
+        del state_dict[key]
+
+# Load state dictionary to the model
+model.load_state_dict(state_dict, strict=False)
+
+# Move the model to the desired device
+model = model.to(device)
+
+# Ensure the model is in training mode
+model.train()
+
+# Loss and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adamax(model.parameters(), lr=lr)
+
+# Training the model (assuming train_loader is defined somewhere)
+total_step = len(train_loader)
+for epoch in range(num_epochs):
+    model.train()  # Ensure model is in training mode
+    total_correct = 0
+    total_samples = 0
+    for batch_i, (data, target) in enumerate(train_loader):
+        data, target = data.to(device), target.to(device)
+        
+        # Forward pass
+        outputs = model(data)
+        loss = criterion(outputs, target)
+        
+        # Backward and optimize
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        
+        # Compute training accuracy
+        _, predicted = torch.max(outputs, 1)
+        total_correct += (predicted == target).sum().item()
+        total_samples += target.size(0)
+        
+        if (batch_i + 1) % 100 == 0:
+            print(f'Epoch [{epoch+1}/{num_epochs}], Step [{batch_i+1}/{total_step}], Loss: {loss.item():.4f}')
+
+    # Compute and print training accuracy for the epoch
+    train_accuracy = total_correct / total_samples
+    print(f'Training Accuracy for Epoch {epoch+1}: {train_accuracy:.4f}')
+
+# Save the model checkpoint
+torch.save(model.state_dict(), 'model.pt')
