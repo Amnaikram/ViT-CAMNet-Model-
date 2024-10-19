@@ -90,7 +90,7 @@ the loaded state dictionary improves the efficiency, speed, and simplicity of th
 Test Time Augmentation (TTA) involves applying various transformations to test images to enhance inceptionV3 predictions.
 
 <p align = "center">
-<img align="center" src="GM.png" alt="Original Dataset"/>
+<img align="center" src="TTA aug GradCam.png" alt="Original Dataset"/>
 </p>
 
 ## Gradient-weighted Class Activation Mapping (Refer GRADCAM.txt file)
