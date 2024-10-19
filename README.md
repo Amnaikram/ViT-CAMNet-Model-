@@ -62,7 +62,7 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 ## DR Predictions  (Refer Predictions of DR Class.txt) 
 
 <p align = "center">
-<img align="center" src="2Predictions ViT.png" alt="Original Dataset"/>
+<img align="center" src="2 Predictions ViT.png" alt="Original Dataset"/>
 </p>
 
 # Highlighting Potential Parts of Image
