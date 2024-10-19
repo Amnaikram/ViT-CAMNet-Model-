@@ -52,8 +52,7 @@ The preprocessing pipeline consists of the following:
 
 ## Fine Tuned Vision Transformer (Refer Vision Transformer.txt file)
 
-The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed natural language processing (NLP) by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming
- to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
+The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed natural language processing (NLP) by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
  
 ## Training and Evaluation (Refer Multi Level Classification of DR.txt) 
 
@@ -76,6 +75,7 @@ The next dataset is used named ([APTOS2019)](https://www.kaggle.com/datasets/mar
 
 ## Data Preprocessing (Refer Data Preprocessing Aptos2019 Dataset.txt file)
 
+The preprocessing pipeline consists of the following:
 1. Random oversampling
 2. BGR to RGB
 3. Cropping
@@ -117,4 +117,8 @@ The current models return the following scores for binary classification (DR vs 
 
 <p align = "center">
 <img align="center" src="GM.png" alt="Original Dataset"/>
+</p>
+
+<p align = "center">
+<img align="center" src="CM ViT.png" alt="Original Dataset"/>
 </p>
