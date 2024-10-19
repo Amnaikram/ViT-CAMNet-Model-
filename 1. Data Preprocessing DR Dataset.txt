@@ -1,0 +1,106 @@
+#Dataset Description:
+
+Path_data = '/kaggle/input/diabetic-retinopathy-dataset'
+data = os.listdir(Path_data)
+Healthy = os.listdir('/kaggle/input/diabetic-retinopathy-dataset/Healthy')
+Mild = os.listdir('/kaggle/input/diabetic-retinopathy-dataset/Mild DR')
+Moderate = os.listdir('/kaggle/input/diabetic-retinopathy-dataset/Moderate DR')
+Proliferate = os.listdir('/kaggle/input/diabetic-retinopathy-dataset/Proliferate DR')
+Severe = os.listdir('/kaggle/input/diabetic-retinopathy-dataset/Severe DR')
+
+
+print("classes names :", (data), "\n______________________________\n")
+print("Number of classes :", len(data), "\n______________________________\n")
+print("Number of Healty images :", len(Healthy), "\n______________________________\n")
+print("Number of Mild images :", len(Mild),  "\n______________________________\n")
+print("Number of Moderate images :", len(Moderate),  "\n______________________________\n")
+print("Number of Proliferate images :", len(Proliferate),  "\n______________________________\n")
+print("Number of severe images :", len(Severe),  "\n______________________________\n")
+
+#Data Preprocessing & Augmentation functions:
+
+#Data Balancing
+
+# Install imblearn if not already installed
+# This line is needed if you're running in an environment where you can install packages
+# !pip install imbalanced-learn
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from imblearn.over_sampling import RandomOverSampler
+
+# Assuming 'X' and 'y' are your features and labels, respectively
+# Define the sampling strategy as a dictionary
+sampling_strategy = {
+    'Healthy': 1000,  # Specify the desired number of samples for each class
+    'Mild DR': 1000,
+    'Moderate DR': 1000,
+    'Proliferate DR': 1000,
+    'Severe DR': 1000
+}
+
+# Initialize RandomOverSampler with the sampling strategy dictionary
+ros = RandomOverSampler(sampling_strategy=sampling_strategy)
+
+# Perform random oversampling
+x_ros, y_ros = ros.fit_resample(X, y)
+
+# Convert the oversampled labels back to a pandas Series for visualization
+y_ros_series = pd.Series(y_ros)
+
+# Plot the pie chart to visualize the class distribution after oversampling
+ax = y_ros_series.value_counts().plot.pie(autopct='%.2f')
+_ = ax.set_title('Over-sampling')
+
+plt.show()
+
+
+#Data Preprocessing
+
+#ZCA Whitening
+
+class ZCAWhitening:
+    def __init__(self, epsilon=1e-5):
+        self.epsilon = epsilon
+        self.mean = None
+        self.zca_matrix = None
+​
+    def fit(self, X):
+        X_flat = X.reshape(X.shape[0], -1)
+        self.mean = np.mean(X_flat, axis=0)
+        X_flat -= self.mean
+        covariance_matrix = np.cov(X_flat, rowvar=False)
+        U, S, _ = np.linalg.svd(covariance_matrix)
+        self.zca_matrix = np.dot(U, np.dot(np.diag(1.0 / np.sqrt(S + self.epsilon)), U.T))
+​
+    def transform(self, X):
+        shape = X.shape
+        X_flat = X.reshape(X.shape[0], -1)
+        X_flat -= self.mean
+        X_flat = np.dot(X_flat, self.zca_matrix.T)
+        return X_flat.reshape(shape)
+​
+    def fit_transform(self, X):
+        self.fit(X)
+        return self.transform(X)
+​
+#Function to apply ZCA whitening to a batch of images
+def apply_zca_whitening(batch, zca_whitener):
+    batch = batch.astype(np.float32) / 255.0
+    batch_whitened = zca_whitener.fit_transform(batch)
+    return batch_whitened
+
+​#Transforms
+
+train_transform = A.Compose([
+    A.Resize(224, 224),
+    A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+    ToTensorV2(),
+])
+​
+val_test_transform = A.Compose([
+    A.Resize(224, 224),
+    A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+    ToTensorV2(),
+])
+
