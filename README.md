@@ -69,22 +69,26 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
 The next dataset is used named ([APTOS2019 )] (https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
 
+
 ## Random Oversampling (Refer Data Preprocessing Aptos2019 Dataset.txt file)
 
 Random oversampling to equal the number of images present in different classes. 
+
 
 ## InceptionV3 Training (Refer InceptionV3.txt file)
 
 The Inception v3 is loaded from the path linception v3 google-1a9a5a14.pth. The auxiliary logits layer is removed from the loaded state dictionary, and the fully connected layer is modified to match the count of classes. The modified state dictionary is then loaded into the model. Additionally, the pretrained weights are removed, and the model is initialized with custom weights. Removing the auxiliary logits layer from
 the loaded state dictionary improves the efficiency, speed, and simplicity of the model during inference without compromising its performance.
 
+
 ## Test time Augmentation (Refer Test time Augmentation.txt file)
 
 Test Time Augmentation (TTA) involves applying various transformations to test images to enhance inceptionV3 predictions.
 
+
 ## Gradient-weighted Class Activation Mapping (Refer GRADCAM.txt file)
 
-
+It provides an interpretable visual explanation of the network’s decision by highlighting the image areas that influenced the prediction the most. The Label indicates the predicted class and the probabilities associated with each label represent the network’s confidence level in its classification.
 
 ## Results
 
