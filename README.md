@@ -59,7 +59,7 @@ The Vision Transformer (ViT) model adapts the transformer architecture from the 
 
 Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
-# DR Predictions  (Refer Predictions of DR Class.txt) 
+## DR Predictions  (Refer Predictions of DR Class.txt) 
 
 <p align = "center">
 <img align="center" src="2Predictions ViT.png" alt="Original Dataset"/>
@@ -89,6 +89,9 @@ the loaded state dictionary improves the efficiency, speed, and simplicity of th
 
 Test Time Augmentation (TTA) involves applying various transformations to test images to enhance inceptionV3 predictions.
 
+<p align = "center">
+<img align="center" src="GM.png" alt="Original Dataset"/>
+</p>
 
 ## Gradient-weighted Class Activation Mapping (Refer GRADCAM.txt file)
 
