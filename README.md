@@ -74,9 +74,16 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 The next dataset is used named ([APTOS2019)](https://www.kaggle.com/datasets/mariaherrerot/aptos2019).
 
 
-## Random Oversampling (Refer Data Preprocessing Aptos2019 Dataset.txt file)
+## Data Preprocessing (Refer Data Preprocessing Aptos2019 Dataset.txt file)
 
-Random oversampling to equal the number of images present in different classes. 
+1. Random oversampling
+2. BGR to RGB
+3. Cropping
+4. Resizing
+5. Gaussian blur
+6. Flipping
+7. Rotation
+8. Normalization
 
 
 ## InceptionV3 Training (Refer InceptionV3.txt file)
