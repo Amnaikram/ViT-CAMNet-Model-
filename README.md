@@ -14,7 +14,7 @@ The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kagg
 <img align="center" src="dataset.png" alt="Original Dataset"/>
 </p>
 
-## Data Preprocessing & Augmentation*
+## Data Preprocessing & Augmentation
 
 The preprocessing pipeline consists of the following:
 1. Random oversampling
@@ -25,14 +25,15 @@ The preprocessing pipeline consists of the following:
 <p align = "center">
 <img align="center" src="Preprocessed ViT.png" alt="Original Dataset"/>
 </p>
-   ## Neural Network Architecture
+
+## Vision Transformer
 
 I train two kinds of neural networks in this project. The first is a standard Convolution Neural Network (CNN) consisting of basic convolution and pooling layers. The second is the InceptionV3 model developed by Google. The architectures for both the models are included in the [neural_nets](https://github.com/ramanakshay/Diabetic-Retinopathy-Detection/tree/main/neural_nets) folder.
 
 ## Training
 
-The data is split into two parts. 80% of the data is used for training and the remaining 20% is used for validation. The training data is the data used to train the model and the validation data is used to tune the model’s hyper parameters (optimizer, learning rate, batch size, epoch size...). We perform transfer learning on the InceptionV3 model by using a pre-trained network trained on the ImageNet dataset. 
-
+The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed natural language processing (NLP) by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming
+ to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
 ## Using Google Colab
 
 <p align = "center">
