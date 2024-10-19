@@ -117,8 +117,8 @@ The current models return the following scores for binary classification (DR vs 
 | ViT-CAMNet Model| Accuracy |
 | :-----: | :-----: |
 | Training | 98.3% |
-|  ViT-CAMNet Mode(Validation) | 94.4% |
-|  ViT-CAMNet Mode (Testing) | 93% |
+| Validation | 94.4% |
+| Testing | 93% |
 
 
 <p align = "center">
