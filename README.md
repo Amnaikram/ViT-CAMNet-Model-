@@ -36,7 +36,7 @@ The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kagg
 
 ## Random Oversampling (Refer Data Preprocessing DR Dataset.txt file)
 
-It is used to equlaize te number of images in different classes of DR.
+It is used to equalize the number of images in different classes of DR.
 
 
 ## Dataset Splitting
@@ -58,7 +58,7 @@ The preprocessing pipeline consists of the following:
 
 ## Fine Tuned Vision Transformer (Refer Vision Transformer.txt file)
 
-The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed natural language processing (NLP) by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
+The Vision Transformer (ViT) model adapts the transformer architecture from the field of natural language processing (NLP) to image recognition tasks. Transformers initially transformed NLP by allowing models to capture long-range dependencies and context within text. Drawing inspiration from this success, researchers have begun applying transformers to computer vision, aiming to potentially supplant convolutional neural networks (CNNs). ViT has three variants,  namely Base, Large and Huge. We applied fine-tuned vit base patch32 224 to perform multi-classification of DR. The specific variant vit base patch32 224 is used for multi level classification of DR.
  
 ## Training and Evaluation (Refer Multi Level Classification of DR.txt) 
 
