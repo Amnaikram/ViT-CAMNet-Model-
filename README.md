@@ -59,6 +59,8 @@ The Vision Transformer (ViT) model adapts the transformer architecture from the 
 
 Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
+# DR Predictions  (Refer Predictions of DR Class.txt) 
+
 
 
 # Highlighting Potential Parts of Image
