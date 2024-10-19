@@ -23,11 +23,11 @@ The integration of ViT for feature extraction, customized training of InceptionV
 
 The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). It contains 2,750 images across five classes, labeled from 0 (Healthy) to 4 (Severe DR), with the following distribution:
 
-0: Healthy - 1000 images
-1: Mild DR - 370 images
-2: Moderate DR - 900 images
-3: Proliferative DR - 290 images
-4: Severe DR - 190 images
+0: Healthy - 1000 images,
+1: Mild DR - 370 images,
+2: Moderate DR - 900 images,
+3: Proliferative DR - 290 images,
+4: Severe DR - 190 images.
 
 <p align = "center">
 <img align="center" src="dataset.png" alt="Original Dataset"/>
