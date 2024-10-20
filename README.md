@@ -19,7 +19,7 @@ The integration of ViT for feature extraction, customized training of InceptionV
 
 
 
-## Data (Link of Dataset is given below)
+## Data Collection (Link of Dataset is given below)
 
 The dataset is obtained from a ([Diabetic Retinopathy Dataset)](https://www.kaggle.com/datasets/sachinkumar413/diabetic-retinopathy-dataset). It contains 2,750 images across five classes, labeled from 0 (Healthy) to 4 (Severe DR), with the following distribution:
 
@@ -74,7 +74,7 @@ Then fine tuned variant vit base patch32 224 is trained and evaluated.
 
 
 
-## Dataset (Link of Dataset is given below)
+## Data Acquisition (Link of Dataset is given below)
 
 The next dataset is used named ([APTOS2019)](https://www.kaggle.com/datasets/mariaherrerot/aptos2019). It contains separate folders for training and testing images.
 
