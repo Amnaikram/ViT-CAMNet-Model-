@@ -1,5 +1,6 @@
-#Dataset Description:
+#Dataset collected for Multi level Classification of DR
 
+#Dataset Description:
 Path_data = '/kaggle/input/diabetic-retinopathy-dataset'
 data = os.listdir(Path_data)
 Healthy = os.listdir('/kaggle/input/diabetic-retinopathy-dataset/Healthy')
