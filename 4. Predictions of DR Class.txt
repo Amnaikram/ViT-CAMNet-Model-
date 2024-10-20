@@ -1,3 +1,5 @@
+#Predict image's class w.r.t DR
+
 import matplotlib.pyplot as plt
 import torch
 import torchvision.transforms as transforms
