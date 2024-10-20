@@ -1,4 +1,4 @@
-#Predict image's class w.r.t DR
+#Predict image's class w.r.t DR using ViT Model
 
 import matplotlib.pyplot as plt
 import torch
